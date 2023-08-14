@@ -9,7 +9,6 @@ function MakeUi() {
 				<EditSideUI />
 			</div>
 			<div className="preview-side">
-				<h1>Preview</h1>
 				<PreviewSideUI />
 			</div>
 		</div>
