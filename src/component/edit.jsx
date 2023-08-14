@@ -1,25 +1,39 @@
+import { useState } from 'react';
 import '../style/edit.css';
 
+function SetInput(ID, type, placeholder) {
+	const [value, setValue] = useState(null);
+	// const currentInput = document.querySelector(`#${inputID}`);
+	console.log(value);
+	return (
+		<input
+			type={type}
+			id={ID}
+			placeholder={placeholder}
+			onChange={(e) => setValue(e.target.value)}
+		/>
+	);
+}
 function EditSideUI() {
 	return (
 		<>
 			<div className="general-info">
 				<h1>Personal Information</h1>
 				<label htmlFor="fullname">FullName</label>
-				<input type="text" id="fullname" value={'Elias Khodaparast'} />
+				{SetInput('fullname', 'text', 'Elias Khodaparast Barkook')}
 				<label htmlFor="email">Email</label>
-				<input type="email" id="email" value={'DevEliasKh@gamil.com'} />
+				{SetInput('email', 'email', 'DevEliasKh@gamil.com')}
 				<label htmlFor="phone">Phone Number</label>
-				<input type="tel" id="phone" value={'+989391066134'} />
+				{SetInput('phone', 'tel', '+989391066134')}
 				<label htmlFor="address">Address</label>
-				<input type="text" id="address" value={'Mashhad, Iran'} />
+				{SetInput('address', 'text', 'Mashhad, Iran')}
 			</div>
 			<div className="edit-education">
 				<h1>Education</h1>
 				<label htmlFor="school">School</label>
-				<input type="text" id="school" value={''} />
+				<input type="text" id="school" />
 				<label htmlFor="degree">Degree</label>
-				<input type="text" id="degree" value={''} />
+				<input type="text" id="degree" />
 				<div className="edit-date">
 					<label htmlFor="start-date">Start Date</label>
 					<input type="date" id="start-date" />

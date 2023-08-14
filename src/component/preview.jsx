@@ -1,9 +1,16 @@
 import '/home/elias/Coding/repos/CV-app/src/style/preview.css';
 
+function PutValue(ID, className) {
+	// const inputValue = document.querySelector(`#${ID}`);
+	// console.log(inputValue.value);
+	return <div className={className}>inputValue</div>;
+}
+
 function PreviewSideUI() {
 	return (
 		<div className="card">
-			<div className="name">Elias Khodaparast</div>
+			{PutValue('fullname', 'name')}
+			{/* <div className="name">Elias Khodaparast</div> */}
 			<div className="contact">
 				<span className="email">DevEliasKh@gmail.com</span>
 				<span className="Phone">+989391066134</span>
