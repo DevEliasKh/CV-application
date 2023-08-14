@@ -1,0 +1,22 @@
+.general-info,
+.edit-education,
+.edit-experience {
+	display: flex;
+	flex-direction: column;
+	background-color: #e2e8f0;
+	border-radius: 1rem;
+	width: 50%;
+	padding: 2rem;
+}
+
+label {
+	margin-top: 1rem;
+}
+
+.edit-date {
+	padding-top: 1rem;
+}
+
+h1 {
+	text-align: center;
+}

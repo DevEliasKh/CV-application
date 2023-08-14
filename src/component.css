@@ -1,0 +1,40 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+}
+
+.edit-side {
+	flex: 1;
+	width: 50%;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	gap: 1rem;
+}
+
+.preview-side {
+	flex: 1;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	margin: 1rem;
+}
