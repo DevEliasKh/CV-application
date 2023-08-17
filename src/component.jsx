@@ -4,7 +4,25 @@ import './style/preview.css';
 import './style/edit.css';
 
 function UI() {
-	const userData = {
+	// const userData = {
+	// 	fullname: 'Elias Khodaparast',
+	// 	email: '',
+	// 	phone: '',
+	// 	address: '',
+	// 	school: '',
+	// 	degree: '',
+	// 	start_data_edu: '',
+	// 	end_date_edu: '',
+	// 	location_edu: '',
+	// 	company: '',
+	// 	position: '',
+	// 	start_date_job: '',
+	// 	end_sate_job: '',
+	// 	location_job: '',
+	// 	description: '',
+	// };
+
+	const [user, setUser] = useState({
 		fullname: 'Elias Khodaparast',
 		email: '',
 		phone: '',
@@ -17,29 +35,20 @@ function UI() {
 		company: '',
 		position: '',
 		start_date_job: '',
-		end_sate_job: '',
+		end_date_job: '',
 		location_job: '',
-		description: '',
-	};
-
-	const [user, setUser] = useState(userData);
+		// description: '',
+	});
 	function SetInput(ID, type, placeholder) {
-		const updateUser = () => {
-			setUser((prevUsers) => {
-				const updatedUsers = [...prevUsers];
-				updatedUsers.ID = 'Emma';
-				return updatedUsers;
-			});
-
-			return (
-				<input
-					type={type}
-					id={ID}
-					placeholder={placeholder}
-					onChange={updateUser}
-				/>
-			);
+		const updateUser = (e) => {
+			const { id, value } = e.target;
+			console.log(e.target.id);
+			setUser((prevUser) => ({ ...prevUser, [e.target.id]: value }));
 		};
+		// console.log(user);
+		return (
+			<input type={type} id={ID} placeholder={placeholder} onChange={updateUser} />
+		);
 	}
 
 	return (
@@ -59,58 +68,57 @@ function UI() {
 				<div className="edit-education">
 					<h1>Education</h1>
 					<label htmlFor="school">School</label>
-					<input type="text" id="school" />
+					{SetInput('school', 'text')}
 					<label htmlFor="degree">Degree</label>
-					<input type="text" id="degree" />
+					{SetInput('degree', 'text')}
 					<div className="edit-date">
 						<label htmlFor="start_date_edu">Start Date</label>
-						<input type="date" id="start_date_edu" />
+						{SetInput('start_date_edu', 'date')}
 						<label htmlFor="end_date_edu">End Date</label>
-						<input type="date" id="end_date_edu" />
+						{SetInput('end_date_edu', 'date')}
 					</div>
 					<label htmlFor="location_edu">Location</label>
-					<input type="text" id="location_edu" />
+					{SetInput('location_edu', 'text')}
 				</div>
 				<div className="edit-experience">
 					<h1>Professional Experience</h1>
 					<label htmlFor="company">Company</label>
-					<input type="text" id="company" />
+					{SetInput('company', 'text')}
 					<label htmlFor="position">Position</label>
-					<input type="text" id="position" />
+					{SetInput('position', 'text')}
 					<div className="edit-date">
 						<label htmlFor="start_date_job">Start Date</label>
-						<input type="date" id="start_date_job" />
+						{SetInput('start_date_job', 'date')}
 						<label htmlFor="end_date_job">End Date</label>
-						<input type="date" id="end_date_job" />
+						{SetInput('end_date_job', 'date')}
 					</div>
 					<label htmlFor="location_job">Location</label>
-					<input type="text" id="locatio_-job" />
-					<label htmlFor="description">Description</label>
-					<textarea id="description" cols="30" rows="10"></textarea>
-					<label htmlFor=""></label>
+					{SetInput('location_job', 'text')}
+					{/* <label htmlFor="description">Description</label> */}
+					{/* <textarea id="description" cols="30" rows="10"></textarea> */}
 				</div>
 			</div>
 			<div className="preview-side">
 				<div className="card">
-					<div className="name">{value}</div>
+					<div className="name">{user.fullname}</div>
 					<div className="contact">
-						<span className="email">DevEliasKh@gmail.com</span>
-						<span className="Phone">+989391066134</span>
-						<span className="location">Mashhad, Iran</span>
+						<span className="email">{user.email}</span>
+						<span className="Phone">{user.phone}</span>
+						<span className="location">{user.address}</span>
 					</div>
 					<div className="education">
 						<div className="header">Education</div>
 						<div className="education-card">
 							<div className="left">
 								<div className="date">
-									<div className="start-date">2015/06/301</div>
-									<div className="end-date">2019/06/30</div>
+									<div className="start-date">{user.start_date_edu}</div>
+									<div className="end-date">{user.end_date_edu}</div>
 								</div>
-								<div className="location">Mashhad, Iran</div>
+								<div className="location">{user.location_edu}</div>
 							</div>
 							<div className="right">
-								<div className="school">university</div>
-								<div className="degree">Degree</div>
+								<div className="school">{user.school}</div>
+								<div className="degree">{user.degree}</div>
 							</div>
 						</div>
 					</div>
@@ -119,18 +127,18 @@ function UI() {
 						<div className="experience-card">
 							<div className="left">
 								<div className="date">
-									<div className="start-date">2015/06/301</div>
-									<div className="end-date">2019/06/30</div>
+									<div className="start-date">{user.start_date_job}</div>
+									<div className="end-date">{user.end_date_job}</div>
 								</div>
-								<div className="location">Mashhad, Iran</div>
+								<div className="location">{user.location_job}</div>
 							</div>
 							<div className="right">
-								<div className="company">Apple</div>
-								<div className="position">Front-end Developer</div>
-								<div className="description">
+								<div className="company">{user.company}</div>
+								<div className="position">{user.position}</div>
+								{/* <div className="description">
 									Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod
 									incidunt, ratione, maiores tempore alias voluptates
-								</div>
+								</div> */}
 							</div>
 						</div>
 					</div>
